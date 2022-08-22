@@ -14,18 +14,22 @@ function snapCracklePrime(maxValue) {
         numDivisoresPrime++;
       }
     }
-    if (numDivisoresPrime % i == 0 && i % 2 == 1 && i % 5 == 0) {
+    if (numDivisoresPrime % i == 0 && i % 2 !== 0 && i % 5 == 0) {
       str = "SnapCracklePrime";
-    } else if (numDivisoresPrime % i == 0 && i % 2 == 1 && i != 1) {
+    } else if (numDivisoresPrime % i == 0 && i % 2 !== 0 && i != 1) {
       str = "SnapPrime";
-    } else if (i % 2 == 1 && i % 5 == 0) {
+    } else if (i % 2 !== 0 && i % 5 == 0) {
       str = "SnapCrackle";
     } else if (numDivisoresPrime % i == 0 && i != 1) {
       str = "Prime";
-    } else if (i % 2 == 1) {
+    } else if (i % 2 !== 0) {
       str = "Snap";
     } else if (i % 5 == 0) {
       str = "Crackle";
+    } else if (i !== maxValue) {
+      str = i;
+    } else {
+      str = i;
     }
     array.push(str); //envio dos dados da string para a array
   }
@@ -34,3 +38,7 @@ function snapCracklePrime(maxValue) {
 let resultadoSnapCracklePrime = snapCracklePrime(number);
 alert(resultadoSnapCracklePrime);
 console.log(resultadoSnapCracklePrime);
+
+//resultado esperado:Snap, Prime, SnapPrime, 4, SnapCracklePrime, 6, SnapPrime, 8, Snap, Crackle, SnapPrime, 12, SnapPrime, 14, SnapCrackle
+
+//resultado obtido:Snap, Prime, SnapPrime, 4, SnapCracklePrime, 6, SnapPrime, 8, Snap, Crackle, SnapPrime, 12, SnapPrime, 14, SnapCrackle
